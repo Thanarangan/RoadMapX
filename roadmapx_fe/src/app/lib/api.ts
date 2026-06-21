@@ -1,9 +1,7 @@
 import axios, { AxiosError, type AxiosInstance } from "axios";
 import { toast } from "sonner";
 
-const BASE_URL =
-  (typeof import.meta !== "undefined" && (import.meta as any).env?.VITE_API_BASE_URL) ||
-  "http://localhost:8080";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const api: AxiosInstance = axios.create({
   baseURL: BASE_URL,
