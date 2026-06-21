@@ -1,18 +1,14 @@
 import { Link } from "../lib/router-compat";
-import { ArrowRight, Sparkles, Map, BookOpen, Activity, ShieldCheck } from "lucide-react";
+import { ArrowRight, Map, BookOpen, Activity, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import BrandLogo from "../components/BrandLogo";
 
 export default function LandingPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 bg-gradient-hero" />
-      <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <div className="flex items-center gap-2.5">
-          <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-primary shadow-glow">
-            <Sparkles className="h-4.5 w-4.5 text-primary-foreground" strokeWidth={2.5} />
-          </div>
-          <span className="text-[15px] font-semibold tracking-tight">RoadMapX</span>
-        </div>
+      <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between px-6 py-6 sm:px-8">
+        <BrandLogo className="h-11 shadow-soft" />
         <div className="flex items-center gap-2">
           <Link to="/login">
             <Button variant="ghost" size="sm">

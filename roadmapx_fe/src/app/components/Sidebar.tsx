@@ -16,11 +16,11 @@ import {
   BarChart3,
   Settings2,
   X,
-  Sparkles,
   LogOut,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Role } from "../lib/api";
+import BrandLogo from "./BrandLogo";
 
 interface NavItem {
   to: string;
@@ -67,13 +67,7 @@ export default function Sidebar({ mobileOpen, onClose }: Props) {
     <div className="flex h-full flex-col gap-1 bg-sidebar text-sidebar-foreground">
       <div className="flex items-center justify-between px-5 pt-6 pb-4">
         <div className="flex items-center gap-2.5">
-          <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-primary shadow-glow">
-            <Sparkles className="h-4.5 w-4.5 text-primary-foreground" strokeWidth={2.5} />
-          </div>
-          <div>
-            <div className="text-[15px] font-semibold tracking-tight">RoadMapX</div>
-            <div className="text-[11px] text-muted-foreground -mt-0.5">Learning OS</div>
-          </div>
+          <BrandLogo className="h-11 max-w-[150px]" />
         </div>
         <button
           aria-label="Close menu"

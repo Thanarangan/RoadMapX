@@ -2,12 +2,13 @@ import { Link, useNavigate } from "../lib/router-compat";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Sparkles, ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { useAuth, homeForRole } from "../lib/auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import BrandLogo from "../components/BrandLogo";
 
 const schema = z.object({
   email: z.string().trim().email("Enter a valid email").max(255),
@@ -41,18 +42,13 @@ export default function LoginPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background">
       <div className="pointer-events-none absolute inset-0 bg-gradient-hero" />
+      <Link to="/" className="absolute left-6 top-6 z-10 lg:hidden">
+        <BrandLogo className="h-11 shadow-soft" />
+      </Link>
       <div className="relative grid min-h-screen lg:grid-cols-2">
         {/* Brand panel */}
         <div className="hidden flex-col justify-between border-r border-border p-12 lg:flex">
-          <div className="flex items-center gap-2.5">
-            <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-primary shadow-glow">
-              <Sparkles className="h-4.5 w-4.5 text-primary-foreground" strokeWidth={2.5} />
-            </div>
-            <div>
-              <div className="text-[15px] font-semibold tracking-tight">RoadMapX</div>
-              <div className="text-[11px] text-muted-foreground -mt-0.5">Learning OS</div>
-            </div>
-          </div>
+          <BrandLogo className="h-11 self-start shadow-soft" />
           <div className="max-w-md">
             <div className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
               Premium learning platform
@@ -83,14 +79,8 @@ export default function LoginPage() {
         </div>
 
         {/* Form */}
-        <div className="flex items-center justify-center p-6 sm:p-12">
+        <div className="flex items-center justify-center p-6 pt-28 sm:p-12">
           <div className="w-full max-w-sm animate-fade-in">
-            <div className="mb-8 flex items-center gap-2 lg:hidden">
-              <div className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-primary">
-                <Sparkles className="h-4.5 w-4.5 text-primary-foreground" />
-              </div>
-              <span className="text-[15px] font-semibold">RoadMapX</span>
-            </div>
             <h2 className="text-2xl font-semibold tracking-tight">Welcome back</h2>
             <p className="mt-1.5 text-sm text-muted-foreground">
               Sign in to continue your learning journey.
